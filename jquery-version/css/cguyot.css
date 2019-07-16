@@ -1,0 +1,186 @@
+.erreur {
+    background: linear-gradient(-60deg, #f23819, #000000, #901a06);
+    background-size: 550% 550%;
+    animation: AnimationName 10s ease infinite;
+}
+
+.oclock {
+    background: linear-gradient(-60deg, #00fdbc, #03b631, #03611b);
+    background-size: 550% 550%;
+    animation: AnimationNameO 20s ease infinite;
+}
+
+@keyframes AnimationNameO {
+    0% {
+        background-position: 0% 57%
+    }
+
+    50% {
+        background-position: 100% 44%
+    }
+
+    100% {
+        background-position: 0% 57%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 57%
+    }
+
+    50% {
+        background-position: 100% 44%
+    }
+
+    100% {
+        background-position: 0% 57%
+    }
+}
+
+
+
+#root {
+    height: 100vh;
+}
+
+h1,
+h2 {
+    font-family: open sans, Arial, Helvetica Neue, sans-serif;
+    text-transform: uppercase;
+    line-height: 2;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-align: center;
+    color: whitesmoke;
+}
+
+header,
+label {
+    font-family: open sans, Arial, Helvetica Neue, sans-serif;
+    width: 100%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    line-height: .8;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-align: center;
+    color: whitesmoke;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    width: 23rem;
+    margin: 0 auto;
+    text-align: left;
+
+}
+
+#resultat {
+    width: 25rem;
+    height: 19.5rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-family: open sans, Arial, Helvetica Neue, sans-serif;
+    font-size: 4.5rem;
+    padding-top: 4.5rem;
+    color: whitesmoke;
+
+}
+
+#resultat:before {
+    content: "";
+    position: absolute;
+    width: 214%;
+    height: 195%;
+    top: -50%;
+    left: -56%;
+    z-index: -1;
+    transform-origin: center;
+    background: url(../images/logo.svg) no-repeat center;
+    background-position-y: 15rem;
+    background-size: 36%;
+    opacity: 0.2;
+    animation: Logo 20s linear infinite;
+
+}
+
+@keyframes Logo {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+
+
+
+#euros,
+#devise {
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: 2rem auto;
+    width: 23rem;
+    text-align: center;
+}
+
+#devise {
+    margin: 0.5rem auto;
+}
+
+.little {
+    font-family: 'Barriecito', cursive;
+    font-size: 2rem;
+    color: wheat;
+}
+
+@media all and (min-width: 1199px) {
+
+    header {
+        text-align: left;
+        border-bottom: 2px solid white;
+        font-size: 2.5rem;
+        padding: 10px;
+    }
+
+    #resultat {
+        float: left;
+    }
+
+    form {
+        float: left;
+        width: 50%;
+        margin-top: 4rem;
+    }
+
+
+}
+
+
+@media all and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+    header {
+        text-align: left;
+        border-bottom: 2px solid white;
+        font-size: 2.5rem;
+        padding: 10px;
+    }
+
+    #resultat {
+        float: left;
+    }
+
+    form {
+        float: left;
+        width: 50%;
+        margin-top: 4rem;
+    }
+}
