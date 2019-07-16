@@ -112,7 +112,7 @@ function afficheFormulaire() {
 
 function actionFormulaire() {
 
-    $("#euros").keyup(function (onlyNumber) {
+    $("#euros").keydown(function (onlyNumber) {
 
         if ((onlyNumber.which > 47 && onlyNumber.which < 58) || (onlyNumber.which == 190 && ($("#euros").val().indexOf(".") == $("#euros").val().lastIndexOf(".")))) {
             calcul();
@@ -122,8 +122,9 @@ function actionFormulaire() {
         }
 
     });
+   
 
-    $("#devise").change(function () {
+    $("#devise").bind('input',function () {
         calcul();
     });
 }
