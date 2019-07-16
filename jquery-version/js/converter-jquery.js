@@ -112,7 +112,7 @@ function afficheFormulaire() {
 
 function actionFormulaire() {
 
-    $("#euros").keydown(function (onlyNumber) {
+    $("#euros").keyup(function (onlyNumber) {
 
         if ((onlyNumber.which > 47 && onlyNumber.which < 58) || (onlyNumber.which == 190 && ($("#euros").val().indexOf(".") == $("#euros").val().lastIndexOf(".")))) {
             calcul();
