@@ -85,7 +85,7 @@ function afficheFormulaire() {
     $("#root").append('<form id="entry">');
     $("#root").append('</form>');
 
-    $("#entry").append('<input id="euros"  placeholder="Entrez la valeur en euros..." pattern="[0-9\\.]*">');
+    $("#entry").append('<input id="euros"  placeholder="Entrez la valeur en euros..." inputmode="decimal">');
     $("#entry").append('<label for="devise">Indiquez la devise </label>');
     $("#entry").append('<input list="deviseList" type="text" id="devise" />');
     $("#entry").append('<datalist id="deviseList">');
