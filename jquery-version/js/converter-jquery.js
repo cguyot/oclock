@@ -113,18 +113,11 @@ function afficheFormulaire() {
 function actionFormulaire() {
 
     $("#euros").keyup(function (onlyNumber) {
-
-        if ((onlyNumber.which > 47 && onlyNumber.which < 58) || (onlyNumber.which == 190 && ($("#euros").val().indexOf(".") == $("#euros").val().lastIndexOf(".")))) {
-            calcul();
-        }
-        else {
-            $("#euros").val('');
-        }
-
+        calcul();
     });
-   
 
-    $("#devise").bind('input',function () {
+
+    $("#devise").bind('input', function () {
         calcul();
     });
 }
@@ -135,14 +128,33 @@ function actionFormulaire() {
 function calcul() {
 
     if ($("#devise").val() != "" && $("#euros").val() != "") {
-        //recuperation du code devise
-        code = $('#deviseList [value="' + $("#devise").val() + '"]').data('code');
-        result = $("#euros").val() * devises[code].value;
 
-        intro = '<div class="little">Pour ' + $("#euros").val() + ' €, vous avez : </div>'
-        end = '<div class="little">' + $("#devise").val() + ' </div>'
+        /* si la somme en euros est bien un nombre :
+            - on calcule t on affiche le résultat.
+            - sinon on affiche un massage.
+        */
+        if (verif()) {
+            //recuperation du code devise
+            code = $('#deviseList [value="' + $("#devise").val() + '"]').data('code');
+            result = $("#euros").val() * devises[code].value;
 
-        $("#resultat").html(intro + result.toFixed(2) + end);
+            intro = '<div class="little">Pour ' + $("#euros").val() + ' €, vous avez : </div>'
+            end = '<div class="little">' + $("#devise").val() + ' </div>'
+
+            $("#resultat").html(intro + result.toFixed(2) + end);
+        }
+        else {
+
+            $("#resultat").html('<div class="little">' + $("#euros").val() + '<br/>n\' est pas une valeur valide ! </div>');
+
+        }
+
+
+    }
+
+     // validation de la somme en euros est un nombre
+    function verif() {
+        return $.isNumeric($("#euros").val());
     }
 
 }
